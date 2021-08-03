@@ -1,10 +1,9 @@
 import os
 
-def count_maps_from_path(pathname):
+def find_maps_from_path(pathname):
+    gbxList_in_Dir = []
     if os.path.exists(os.path.join(pathname)):
         count = 0
-        gbxList_in_Dir = []
-        gbxList_in_Sub = []
         for root, dirs, files in os.walk(pathname):
             if len([f for f in files if f.endswith('.Gbx')]):
                 for maps in files:
@@ -26,7 +25,6 @@ def count_maps_from_path(pathname):
 
     else:
         print(f'Directory ({pathname}) doesn\'t exist, check syntax.')
+    return gbxList_in_Dir
 
-
-
-maps = count_maps_from_path(str(input("Path? : ")))
+maps = find_maps_from_path(str(input("Path? : ")))
