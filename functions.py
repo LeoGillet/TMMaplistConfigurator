@@ -25,6 +25,20 @@ def find_maps_from_path(pathname):
 
     else:
         print(f'Directory ({pathname}) doesn\'t exist, check syntax.')
-    return gbxList_in_Dir
+    return gbxList_in_Dir, count
 
-maps = find_maps_from_path(str(input("Path? : ")))
+
+def show_help():
+    return 1
+
+def show_about():
+    print("F9 key pressed, starting About screen")
+    return 1
+
+def generate_file():
+    return 1
+
+def key_pressed(event):
+    # print(f'Key {event.keysym} was pressed.')
+    if event.keysym == 'F9':
+        show_about()
